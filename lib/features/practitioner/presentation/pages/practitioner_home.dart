@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_task/core/utils/responsive.dart';
-
-import '../../../../core/utils/app_images.dart';
+import 'package:test_core/core/utils/app_images.dart';
+import 'package:test_core/core/utils/responsive.dart';
 
 class PractitionerHome extends StatelessWidget {
   const PractitionerHome({Key? key}) : super(key: key);
