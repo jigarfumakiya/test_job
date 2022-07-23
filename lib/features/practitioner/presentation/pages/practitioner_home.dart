@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_core/core/utils/responsive.dart';
 
-import '../widget/web_navigation.dart';
-
 class PractitionerHome extends StatelessWidget {
   const PractitionerHome({Key? key}) : super(key: key);
 
@@ -10,21 +8,9 @@ class PractitionerHome extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Responsive(
-        tablet: Container(),
-        mobile: Container(),
-        desktop: Row(
-          children: <Widget>[
-            WebNavigation(
-              onItemSelected: (item) {},
-              selectedIndex: 0,
-            ),
-            const VerticalDivider(),
-            Container(
-              color: Colors.blue,
-            )
-          ],
-        ),
-      ),
+          tablet: Container(),
+          mobile: Container(),
+          desktop: const PractitionerWeb()),
     );
   }
 }
@@ -34,6 +20,8 @@ class PractitionerWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return Container(
+      color: Colors.blue,
+    );
   }
 }

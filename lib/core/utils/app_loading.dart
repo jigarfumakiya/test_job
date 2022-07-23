@@ -16,7 +16,7 @@ class AppLoading {
     Navigator.pop(context);
   }
 
-  /// widget for app loading
+  /// pages for app loading
 
   static Widget appLoading() {
     return const Center(

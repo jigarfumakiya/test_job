@@ -6,7 +6,7 @@ import '../../../../core/utils/app_textstyle.dart';
 
 /// NavigationRail for the web
 
-// Enum for all items
+/// Enum for all items
 enum NavigationItem {
   dashboard,
   calendar,
@@ -18,8 +18,10 @@ enum NavigationItem {
   myAccount
 }
 
+/// Item call back
 typedef SelectedIem = void Function(NavigationItem item);
 
+/// class needs to pass selected item and itemcallback builder
 class WebNavigation extends StatelessWidget {
   final int selectedIndex;
   final SelectedIem onItemSelected;
@@ -39,6 +41,7 @@ class WebNavigation extends StatelessWidget {
           backgroundColor: Colors.black,
           indicatorColor: Colors.white24,
           useIndicator: true,
+          elevation: 1,
           labelType: NavigationRailLabelType.all,
           leading: Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
@@ -71,7 +74,7 @@ class WebNavigation extends StatelessWidget {
             ),
           ),
           onDestinationSelected: (selectedIndex) {
-            onItemSelected(mapIndexToItem(selectedIndex));
+            onItemSelected.call(mapIndexToItem(selectedIndex));
           },
           destinations: [
             _buildNavigationDestination(
@@ -110,6 +113,7 @@ class WebNavigation extends StatelessWidget {
     );
   }
 
+  /// Build each item for bottom of navigation rail
   Widget _buildBottomItem({required String title, required String icon}) {
     return Column(
       mainAxisSize: MainAxisSize.min,
