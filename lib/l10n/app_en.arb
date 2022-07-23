@@ -5,5 +5,7 @@
   "patients": "Patients",
   "billing": "Billing",
   "notifications": "Notifications",
-  "help": "Help"
+  "help": "Help",
+  "practitioner": "Practitioner",
+  "searchText": "Search for practitioners or specialties"
 }

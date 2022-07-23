@@ -18,4 +18,5 @@ class AppImages {
   static const String icNotification = '$_appImagesPath/ic_notification.png';
   static const String icPatients = '$_appImagesPath/ic_patients.png';
   static const String icMyAccount = '$_appImagesPath/ic_my_account.png';
+  static const String icMinus = '$_appImagesPath/ic_minus.png';
 }

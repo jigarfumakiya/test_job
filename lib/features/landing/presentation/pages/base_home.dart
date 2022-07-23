@@ -4,8 +4,8 @@ import 'package:flutter_task/features/practitioner/presentation/pages/practition
 import 'package:flutter_task/injection.dart';
 import 'package:test_core/core/utils/responsive.dart';
 
-import '../../../practitioner/presentation/widget/web_navigation.dart';
 import '../bloc/navigation_bloc.dart';
+import '../widgets/web_navigation.dart';
 
 class BaseHome extends StatelessWidget {
   const BaseHome({Key? key}) : super(key: key);
