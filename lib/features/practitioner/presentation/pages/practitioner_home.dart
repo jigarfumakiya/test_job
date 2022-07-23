@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:test_core/core/utils/app_images.dart';
 import 'package:test_core/core/utils/responsive.dart';
+
+import '../widget/web_navigation.dart';
 
 class PractitionerHome extends StatelessWidget {
   const PractitionerHome({Key? key}) : super(key: key);
@@ -13,31 +14,9 @@ class PractitionerHome extends StatelessWidget {
         mobile: Container(),
         desktop: Row(
           children: <Widget>[
-            NavigationRail(
-              selectedIndex: 1,
-              backgroundColor: Colors.black,
-              destinations: [
-                NavigationRailDestination(
-                  label: Text('Dashbooard'),
-                  icon: Image.asset(AppImages.icDashboard),
-                ),
-                NavigationRailDestination(
-                  label: Text('Calendar'),
-                  icon: Image.asset(AppImages.icCalendar),
-                ),
-                NavigationRailDestination(
-                  label: Text('Clinical'),
-                  icon: Image.asset(AppImages.icClinical),
-                ),
-                NavigationRailDestination(
-                  label: Text('Patients'),
-                  icon: Image.asset(AppImages.icPatients),
-                ),
-                NavigationRailDestination(
-                  label: Text('Billing'),
-                  icon: Image.asset(AppImages.icBilling),
-                ),
-              ],
+            WebNavigation(
+              onItemSelected: (item) {},
+              selectedIndex: 0,
             ),
             const VerticalDivider(),
             Container(
@@ -47,5 +26,14 @@ class PractitionerHome extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class PractitionerWeb extends StatelessWidget {
+  const PractitionerWeb({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container();
   }
 }

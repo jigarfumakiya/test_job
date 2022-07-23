@@ -1,3 +1,9 @@
 {
-  "helloWorld": "Hello World!"
+  "dashboard": "Dashboard",
+  "calendar": "Calendar",
+  "clinical": "Clinical",
+  "patients": "Patients",
+  "billing": "Billing",
+  "notifications": "Notifications",
+  "help": "Help"
 }
