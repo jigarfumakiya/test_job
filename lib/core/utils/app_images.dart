@@ -22,4 +22,5 @@ class AppImages {
   static const String icFirstTime = '$_appImagesPath/ic_first_time.png';
   static const String icFollowUp = '$_appImagesPath/ic_follow_up.png';
   static const String icWalkIn = '$_appImagesPath/ic_Walk_in.png';
+  static const String icUser = '$_appImagesPath/ic_user.png';
 }

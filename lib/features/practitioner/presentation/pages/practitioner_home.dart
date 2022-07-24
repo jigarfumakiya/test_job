@@ -8,6 +8,7 @@ import 'package:test_core/core/widget/app_textfiled.dart';
 
 import '../../../../core/utils/app_local.dart';
 
+/// Practitioner Landing screen
 class PractitionerHome extends StatelessWidget {
   const PractitionerHome({Key? key}) : super(key: key);
 
