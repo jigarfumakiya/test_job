@@ -19,10 +19,14 @@ class PractitionerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Build called');
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Responsive(
-          tablet: Container(), mobile: Container(), desktop: PractitionerWeb()),
+          tablet: PractitionerWeb(),
+          mobile: Container(),
+          desktop: PractitionerWeb()),
     );
   }
 }
@@ -34,6 +38,7 @@ class PractitionerWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('Build called');
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -115,9 +120,9 @@ class PractitionerWeb extends StatelessWidget {
     return Expanded(
       child: Row(
         children: <Widget>[
-          const Expanded(
-            flex: 2,
-            child: FilterSlidePanel(),
+          Expanded(
+            flex: Responsive.isTablet(context) ? 3 : 2,
+            child: const FilterSlidePanel(),
           ),
           const SizedBox(width: 15),
           VerticalDivider(color: AppColors.geryColor),

@@ -15,7 +15,7 @@ class BaseHome extends StatelessWidget {
     return Scaffold(
       body: Responsive(
         mobile: const Text('Not Supported Yet'),
-        tablet: Container(),
+        tablet: WebHome(),
         desktop: WebHome(),
       ),
     );

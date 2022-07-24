@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:test_core/core/utils/app_textstyle.dart';
+import 'package:test_core/core/utils/responsive.dart';
 import 'package:test_core/core/widget/icon_button.dart';
 
 import '../../../../../../core/utils/app_images.dart';
@@ -18,7 +19,7 @@ class PractitionerToolbar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 50,
+      height: Responsive.isTablet(context) ? 40 : 50,
       child: Container(
         color: Colors.white,
         alignment: Alignment.center,

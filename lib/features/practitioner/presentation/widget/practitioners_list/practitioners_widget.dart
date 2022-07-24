@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/features/practitioner/presentation/widget/practitioners_list/widget/item_builder.dart';
 import 'package:test_core/core/utils/app_textstyle.dart';
+import 'package:test_core/core/utils/responsive.dart';
 
 import '../../../../../core/utils/app_local.dart';
 
@@ -14,6 +15,9 @@ class PractitionersWidget extends StatelessWidget {
     return LayoutBuilder(builder: (context, constraints) {
       /// Get the size of the widget not the screen we can calculate
       ///  If the width is less then 1370 then change grid view axis
+
+      print(constraints.maxWidth);
+
       return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5),
         child: Column(
@@ -29,11 +33,18 @@ class PractitionersWidget extends StatelessWidget {
                 controller: ScrollController(), //jus
                 itemCount: 30,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: constraints.maxWidth > 930 ? 3 : 2,
+                  crossAxisCount: Responsive.isTablet(context)
+                      ? 1
+                      : constraints.maxWidth > 930
+                          ? 3
+                          : 2,
                   // Responsive values
                   //min  930
-                  childAspectRatio:
-                      constraints.maxWidth > 930 ? (3 / 1.3) : (3 / 1.23),
+                  childAspectRatio: Responsive.isTablet(context)
+                      ? (3 / 0.8)
+                      : constraints.maxWidth > 930
+                          ? (3 / 1.3)
+                          : (3 / 1.23),
                   // Responsive values
                   mainAxisSpacing: 15,
                   crossAxisSpacing: 15,
