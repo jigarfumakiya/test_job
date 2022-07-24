@@ -43,6 +43,7 @@ dependencies:
   toggle_switch: ^2.0.1
   flutter_switch: ^0.3.2
   syncfusion_flutter_sliders: ^20.2.39
+  badges: ^2.0.3
   ###########################  IMPORT INTERNAL ###########################
   test_core:
     git:

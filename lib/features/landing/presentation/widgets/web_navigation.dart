@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:flutter/material.dart';
 import 'package:test_core/core/utils/app_textstyle.dart';
 
@@ -61,13 +62,25 @@ class WebNavigation extends StatelessWidget {
                   children: <Widget>[
                     _buildBottomItem(
                         icon: AppImages.icNotification,
+                        showBadge: true,
                         title: appLocaleInstance().notifications),
                     const SizedBox(height: 20),
                     _buildBottomItem(
                         icon: AppImages.icHelp,
                         title: appLocaleInstance().help),
                     const SizedBox(height: 20),
-                    _buildBottomItem(icon: AppImages.icMyAccount, title: ''),
+                    GestureDetector(
+                      onTap: () {
+                        onItemSelected.call(mapIndexToItem(7));
+                      },
+                      child: ClipOval(
+                          child: Image.asset(
+                        AppImages.icMyAccount,
+                        width: 40,
+                        height: 40,
+                        fit: BoxFit.fill,
+                      )),
+                    ),
                   ],
                 ),
               ),
@@ -113,19 +126,27 @@ class WebNavigation extends StatelessWidget {
   }
 
   /// Build each item for bottom of navigation rail
-  Widget _buildBottomItem({required String title, required String icon}) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: <Widget>[
-        Image.asset(icon, height: 25),
-        Padding(
-          padding: const EdgeInsets.symmetric(vertical: 5),
-          child: Text(
-            title,
-            style: AppTextStyles.whiteBoldTextStyle10(),
-          ),
-        )
-      ],
+  Widget _buildBottomItem(
+      {required String title, required String icon, bool showBadge = false}) {
+    return Badge(
+      showBadge: showBadge,
+      position: BadgePosition.topEnd(end: 6, top: -10),
+      shape: BadgeShape.circle,
+      badgeColor: Colors.red,
+      badgeContent: Text('34', style: AppTextStyles.whiteBoldTextStyle10()),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Image.asset(icon, height: 25),
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 5),
+            child: Text(
+              title,
+              style: AppTextStyles.whiteBoldTextStyle10(),
+            ),
+          )
+        ],
+      ),
     );
   }
 }
