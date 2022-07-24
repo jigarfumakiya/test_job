@@ -32,8 +32,12 @@ class MyApp extends StatelessWidget {
       ],
       navigatorKey: sl<NavigationService>().navigatorKey,
       supportedLocales: const [
-        Locale('en', ''), // English, no country code
+        Locale('en'), // English, no country code
       ],
+
+      /// Once we have option to change in app make this dynamic
+      ///  English, no country code,
+      locale: const Locale('en'),
 
       /// All routes
       onGenerateRoute: Routes.generateRoute,
