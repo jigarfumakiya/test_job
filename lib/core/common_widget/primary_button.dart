@@ -41,7 +41,8 @@ class PrimaryButton extends StatelessWidget {
             } else if (states.contains(MaterialState.pressed)) {
               return Colors.white;
             }
-            return backgroundColor;
+
+            return onTap == null ? null : backgroundColor;
           },
         ),
 

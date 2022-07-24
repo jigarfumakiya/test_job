@@ -1,16 +1,27 @@
 # flutter_task
 
-A new Flutter project.
+### Version: 1.0.0
 
-## Getting Started
+### Technology for app: Flutter (crossplatform framework by google).
 
-This project is a starting point for a Flutter application.
+## How to install flutter on my machine?
 
-A few resources to get you started if this is your first Flutter project:
+- [install flutter] (https://flutter.dev/docs/get-started/install)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Architecture
+[clean](https://medium.com/%40rodrigolmti/clean-architecture-no-flutter-1888c4baa6bc)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Reusable widget and components
+
+[test_core](https://github.com/jigarfumakiya/test_core)
+
+## 3rd party apps used
+
+### State Management
+
+[BLoC pattern](https://pub.dev/packages/flutter_bloc)
+
+### Service locator
+
+[get_it](https://pub.dev/packages/get_it)
+
