@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-class CollapsibleMenu extends StatefulWidget {
+/// Custom CollapsibleMenu widget
+/// Hold the  widget state and return the widget depanding on state
+class CollapsibleMenu extends StatelessWidget {
   final bool isExpanded;
   final Widget expandedWidget;
 
@@ -11,20 +13,14 @@ class CollapsibleMenu extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<CollapsibleMenu> createState() => _CollapsibleMenuState();
-}
-
-class _CollapsibleMenuState extends State<CollapsibleMenu> {
-  double height = 50;
-  double width = 30;
-
-  @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     return AnimatedContainer(
-        height: widget.isExpanded ? size.height : 0,
-        width: widget.isExpanded ? size.height * 0.4 : 0,
-        duration: const Duration(milliseconds: 500),
-        child: widget.expandedWidget);
+      padding: EdgeInsets.zero,
+      height: isExpanded ? size.height : 0,
+      width: isExpanded ? size.width * 0.25 : 0,
+      duration: const Duration(milliseconds: 400),
+      child: isExpanded ? expandedWidget : const SizedBox(),
+    );
   }
 }

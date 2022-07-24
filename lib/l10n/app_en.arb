@@ -28,7 +28,18 @@
   "general_practice": "General Practice",
   "ent": "ENT",
   "physiotherapy": "Physiotherapy",
-  "practitioners": "Practitioners"
+  "practitioners": "Practitioners",
+  "createAppointment": "Create Appointment",
+  "general": "General",
+  "group": "Group",
+  "blockSlot": "Block slot",
+  "advanced": "Advanced",
+  "profileDateTime": "Profile, date & time",
+  "servicesPayment": "Services & payment",
+  "patient": "Patient",
+  "notes": "Notes"
+
+
 
 
 }

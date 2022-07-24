@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_task/features/practitioner/presentation/pages/create_appointment.dart';
 import 'package:flutter_task/features/practitioner/presentation/widget/filters/filter_slide_panel.dart';
 import 'package:flutter_task/features/practitioner/presentation/widget/filters/widgtes/practitioner_toolbar.dart';
 import 'package:flutter_task/features/practitioner/presentation/widget/practitioners_list/practitioners_widget.dart';
@@ -33,34 +34,36 @@ class PractitionerWeb extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 10),
-            child: BlocBuilder<SideMenuBloc, SideMenuState>(
-              bloc: bloc,
-              builder: (context, state) {
-                if (state is SideMenuOpen) {
-                  return CollapsibleMenu(
-                    isExpanded: true,
-                    expandedWidget: expandedWidget(),
-                  );
-                } else {
-                  return CollapsibleMenu(
-                    isExpanded: false,
-                    expandedWidget: expandedWidget(),
-                  );
-                }
-              },
-            ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(top: 10),
+          child: BlocBuilder<SideMenuBloc, SideMenuState>(
+            bloc: bloc,
+            builder: (context, state) {
+              /// Side menu bloc
+              if (state is SideMenuOpen) {
+                return const CollapsibleMenu(
+                  isExpanded: true,
+                  expandedWidget: CreateAppointment(),
+                );
+              } else {
+                return const CollapsibleMenu(
+                  isExpanded: false,
+                  expandedWidget: CreateAppointment(),
+                );
+              }
+            },
           ),
-          Expanded(
+        ),
+        VerticalDivider(color: AppColors.geryColor, thickness: 2),
+        Expanded(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
             child: Column(
               children: <Widget>[
-                PractitionerToolbar(onSideMenuTap: onSideMenuTap),
+                toolbarBloc(),
                 const SizedBox(height: 5),
                 _buildSearchTextInput(context),
                 const SizedBox(height: 15),
@@ -68,14 +71,27 @@ class PractitionerWeb extends StatelessWidget {
               ],
             ),
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 
-  Widget expandedWidget() {
-    return Container(
-      color: Colors.amber,
+  Widget toolbarBloc() {
+    return BlocBuilder<SideMenuBloc, SideMenuState>(
+      bloc: bloc,
+      builder: (context, state) {
+        if (state is SideMenuOpen) {
+          return PractitionerToolbar(
+            onSideMenuTap: onSideMenuTap,
+            isExpanded: true,
+          );
+        } else {
+          return PractitionerToolbar(
+            onSideMenuTap: onSideMenuTap,
+            isExpanded: false,
+          );
+        }
+      },
     );
   }
 

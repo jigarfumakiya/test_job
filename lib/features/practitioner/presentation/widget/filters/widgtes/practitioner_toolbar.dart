@@ -7,10 +7,12 @@ import '../../../../../../core/utils/app_local.dart';
 
 class PractitionerToolbar extends StatelessWidget {
   final VoidCallback onSideMenuTap;
+  final bool isExpanded;
 
   const PractitionerToolbar({
     Key? key,
     required this.onSideMenuTap,
+    this.isExpanded = false,
   }) : super(key: key);
 
   @override
@@ -23,12 +25,20 @@ class PractitionerToolbar extends StatelessWidget {
         child: Row(
           children: <Widget>[
             const SizedBox(width: 10),
-            AppIconButton(
-              onTap: onSideMenuTap,
-              icon: Icons.arrow_forward_ios_sharp,
+            // use AnimatedCrossFade so user does not have laggy performace
+            AnimatedCrossFade(
+              duration: const Duration(milliseconds: 300),
+              crossFadeState: isExpanded
+                  ? CrossFadeState.showSecond
+                  : CrossFadeState.showFirst,
+              firstChild: AppIconButton(
+                onTap: onSideMenuTap,
+                icon: Icons.arrow_forward_ios_sharp,
+              ),
+              secondChild: AppIconButton(
+                  onTap: onSideMenuTap, icon: Icons.arrow_back_ios_new),
             ),
             AppIconButton.formAsset(onTap: () {}, assetPath: AppImages.icMinus),
-            const SizedBox(width: 10),
             AppIconButton(
               onTap: () {},
               icon: Icons.close,
