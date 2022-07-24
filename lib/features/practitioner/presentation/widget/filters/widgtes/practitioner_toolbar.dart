@@ -6,7 +6,12 @@ import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/app_local.dart';
 
 class PractitionerToolbar extends StatelessWidget {
-  const PractitionerToolbar({Key? key}) : super(key: key);
+  final VoidCallback onSideMenuTap;
+
+  const PractitionerToolbar({
+    Key? key,
+    required this.onSideMenuTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -17,13 +22,13 @@ class PractitionerToolbar extends StatelessWidget {
         alignment: Alignment.center,
         child: Row(
           children: <Widget>[
+            const SizedBox(width: 10),
             AppIconButton(
-              onTap: () {},
+              onTap: onSideMenuTap,
               icon: Icons.arrow_forward_ios_sharp,
             ),
-            const SizedBox(width: 15),
             AppIconButton.formAsset(onTap: () {}, assetPath: AppImages.icMinus),
-            const SizedBox(width: 15),
+            const SizedBox(width: 10),
             AppIconButton(
               onTap: () {},
               icon: Icons.close,

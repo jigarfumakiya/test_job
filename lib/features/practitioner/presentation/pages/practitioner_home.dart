@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_task/features/practitioner/presentation/widget/filters/filter_slide_panel.dart';
 import 'package:flutter_task/features/practitioner/presentation/widget/filters/widgtes/practitioner_toolbar.dart';
 import 'package:flutter_task/features/practitioner/presentation/widget/practitioners_list/practitioners_widget.dart';
@@ -6,7 +7,10 @@ import 'package:test_core/core/utils/app_colors.dart';
 import 'package:test_core/core/utils/responsive.dart';
 import 'package:test_core/core/widget/app_textfiled.dart';
 
+import '../../../../core/common_widget/collapsible_menu.dart';
 import '../../../../core/utils/app_local.dart';
+import '../../../../di/injection.dart';
+import '../bloc/side_menu_bloc.dart';
 
 /// Practitioner Landing screen
 class PractitionerHome extends StatelessWidget {
@@ -17,29 +21,61 @@ class PractitionerHome extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       body: Responsive(
-          tablet: Container(),
-          mobile: Container(),
-          desktop: const PractitionerWeb()),
+          tablet: Container(), mobile: Container(), desktop: PractitionerWeb()),
     );
   }
 }
 
 class PractitionerWeb extends StatelessWidget {
-  const PractitionerWeb({Key? key}) : super(key: key);
+  PractitionerWeb({Key? key}) : super(key: key);
+
+  final bloc = sl<SideMenuBloc>();
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-      child: Column(
-        children: <Widget>[
-          const PractitionerToolbar(),
-          const SizedBox(height: 5),
-          _buildSearchTextInput(context),
-          const SizedBox(height: 15),
-          buildSidePanel(context),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: BlocBuilder<SideMenuBloc, SideMenuState>(
+              bloc: bloc,
+              builder: (context, state) {
+                if (state is SideMenuOpen) {
+                  return CollapsibleMenu(
+                    isExpanded: true,
+                    expandedWidget: expandedWidget(),
+                  );
+                } else {
+                  return CollapsibleMenu(
+                    isExpanded: false,
+                    expandedWidget: expandedWidget(),
+                  );
+                }
+              },
+            ),
+          ),
+          Expanded(
+            child: Column(
+              children: <Widget>[
+                PractitionerToolbar(onSideMenuTap: onSideMenuTap),
+                const SizedBox(height: 5),
+                _buildSearchTextInput(context),
+                const SizedBox(height: 15),
+                buildSidePanel(context),
+              ],
+            ),
+          ),
         ],
       ),
+    );
+  }
+
+  Widget expandedWidget() {
+    return Container(
+      color: Colors.amber,
     );
   }
 
@@ -76,5 +112,14 @@ class PractitionerWeb extends StatelessWidget {
         ],
       ),
     );
+  }
+
+  /// class methods
+  void onSideMenuTap() {
+    if (bloc.state is SideMenuOpen) {
+      bloc.add(HideSideMenuEvent());
+    } else {
+      bloc.add(ExpandSideMenuEvent());
+    }
   }
 }
