@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/core/common_widget/primary_button.dart';
 import 'package:test_core/core/utils/app_colors.dart';
 import 'package:test_core/core/utils/app_textstyle.dart';
 
@@ -58,9 +59,11 @@ class ItemBuilder extends StatelessWidget {
                     ],
                   ),
                 ),
-                ElevatedButton(
-                  onPressed: () {},
+                PrimaryButton(
+                  hoverColor: Colors.black,
+                  hoverChildColor: Colors.white,
                   style: ElevatedButton.styleFrom(
+                    textStyle: AppTextStyles.blackBoldTextStyle12(),
                     padding:
                         const EdgeInsets.symmetric(horizontal: 8, vertical: 17),
                     primary: Colors.white,
@@ -69,10 +72,8 @@ class ItemBuilder extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8)),
                     minimumSize: const Size(0, 0),
                   ),
-                  child: Text(
-                    "Select",
-                    style: AppTextStyles.blackBoldTextStyle12(),
-                  ),
+                  onTap: () {},
+                  child: const Text("Select"),
                 ),
               ],
             ),

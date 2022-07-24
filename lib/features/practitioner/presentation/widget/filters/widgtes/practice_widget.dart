@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_task/core/common_widget/primary_button.dart';
 import 'package:flutter_task/core/utils/app_images.dart';
 import 'package:test_core/core/utils/app_textstyle.dart';
 
@@ -17,16 +18,12 @@ class PracticeWidget extends StatelessWidget {
           style: AppTextStyles.blackBoldTextStyle14(),
         ),
         const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.black,
-            onPrimary: Colors.white,
-            textStyle: AppTextStyles.whiteBoldTextStyle14(),
-            minimumSize: const Size(double.infinity, 50),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          ),
+        PrimaryButton(
+          onTap: () {},
+          hoverColor: Colors.black,
+          hoverChildColor: Colors.white,
+          backgroundColor: Colors.black,
+          childColor: Colors.white,
           child: Row(
             children: <Widget>[
               ClipOval(
@@ -40,16 +37,10 @@ class PracticeWidget extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 10),
-        ElevatedButton(
-          onPressed: () {},
-          style: ElevatedButton.styleFrom(
-            primary: Colors.white,
-            onPrimary: Colors.black,
-            textStyle: AppTextStyles.blackBoldTextStyle14(),
-            minimumSize: const Size(double.infinity, 50),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-          ),
+        PrimaryButton(
+          onTap: () {},
+          hoverColor: Colors.black,
+          hoverChildColor: Colors.white,
           child: Center(child: Text(appLocaleInstance().showAll)),
         ),
       ],

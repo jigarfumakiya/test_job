@@ -18,7 +18,7 @@ class CollapsibleMenu extends StatelessWidget {
     return AnimatedContainer(
       padding: EdgeInsets.zero,
       height: isExpanded ? size.height : 0,
-      width: isExpanded ? size.width * 0.25 : 0,
+      width: isExpanded ? size.width * 0.23 : 0,
       duration: const Duration(milliseconds: 400),
       child: isExpanded ? expandedWidget : const SizedBox(),
     );

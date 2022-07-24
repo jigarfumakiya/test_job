@@ -11,7 +11,6 @@ class CreateAppointment extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-
     return MediaQuery(
       data: const MediaQueryData(padding: EdgeInsets.zero),
       child: SingleChildScrollView(
