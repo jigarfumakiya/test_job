@@ -19,4 +19,7 @@ class AppImages {
   static const String icPatients = '$_appImagesPath/ic_patients.png';
   static const String icMyAccount = '$_appImagesPath/ic_my_account.png';
   static const String icMinus = '$_appImagesPath/ic_minus.png';
+  static const String icFirstTime = '$_appImagesPath/ic_first_time.png';
+  static const String icFollowUp = '$_appImagesPath/ic_follow_up.png';
+  static const String icWalkIn = '$_appImagesPath/ic_Walk_in.png';
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:test_core/core/utils/app_colors.dart';
 import 'package:test_core/core/utils/app_textstyle.dart';
 
-import '../../../../core/utils/app_local.dart';
+import '../../../../../../core/utils/app_local.dart';
 
 class SpecialtyWidget extends StatefulWidget {
   const SpecialtyWidget({Key? key}) : super(key: key);

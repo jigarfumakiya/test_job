@@ -11,12 +11,14 @@
   "soonestAvailability": "Soonest availability",
   "time": "Time",
   "location": "Location",
+  "office": "Office",
   "home": "Home",
   "virtual": "Virtual",
   "type": "Type",
-  "followIp": "Follow up",
+  "firstTime": "First time",
+  "followUp": "Follow up",
   "walkIn": "Walk In",
-  "practice": "practice",
+  "practice": "Practice",
   "primaryClinicDubai": "Primary Clinic Dubai",
   "showAll": "Show all",
   "ob_gyn": "OB-GYN",
@@ -25,7 +27,8 @@
   "all": "All",
   "general_practice": "General Practice",
   "ent": "ENT",
-  "physiotherapy": "Physiotherapy"
+  "physiotherapy": "Physiotherapy",
+  "practitioners": "Practitioners"
 
 
 }
