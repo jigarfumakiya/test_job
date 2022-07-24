@@ -2,11 +2,20 @@ import 'package:flutter/material.dart';
 import 'package:test_core/core/utils/app_colors.dart';
 import 'package:test_core/core/utils/app_textstyle.dart';
 
+import '../../../../core/common_widget/primary_button.dart';
+import '../../../../core/utils/app_images.dart';
 import '../../../../core/utils/app_local.dart';
 import '../widget/app_choice_chip.dart';
 
 class CreateAppointment extends StatelessWidget {
-  const CreateAppointment({Key? key}) : super(key: key);
+  final bool disableTile;
+  final VoidCallback? onCreate;
+
+  const CreateAppointment({
+    Key? key,
+    this.disableTile = true,
+    this.onCreate,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -75,8 +84,12 @@ class CreateAppointment extends StatelessWidget {
               const Spacer(),
               Padding(
                 padding: const EdgeInsets.only(bottom: 5),
-                child: ElevatedButton(
-                  onPressed: null,
+                child: PrimaryButton(
+                  onTap: onCreate,
+                  backgroundColor: Colors.black,
+                  hoverChildColor: Colors.white,
+                  hoverColor: Colors.black,
+                  childColor: Colors.white,
                   style: ElevatedButton.styleFrom(
                       minimumSize: const Size(double.infinity, 55)),
                   child: Text(appLocaleInstance().create),
@@ -90,12 +103,69 @@ class CreateAppointment extends StatelessWidget {
   }
 
   Widget _buildTitle({required String title, required bool selected}) {
-    return ListTile(
-      onTap: () {},
-      minVerticalPadding: 0,
-      tileColor: selected ? AppColors.geryColor : Colors.white,
-      trailing: const Icon(Icons.add, color: Colors.black),
-      title: Text(title, style: AppTextStyles.blackBoldTextStyle14()),
+    return IgnorePointer(
+      ignoring: disableTile,
+      child: ExpansionTile(
+        initiallyExpanded:
+            (!disableTile && title == appLocaleInstance().practitioners),
+        title: Text(title, style: AppTextStyles.blackBoldTextStyle14()),
+        childrenPadding: const EdgeInsets.all(5),
+        trailing: const Icon(Icons.add),
+        iconColor: AppColors.iconColor,
+        expandedCrossAxisAlignment: CrossAxisAlignment.start,
+        collapsedIconColor: AppColors.iconColor,
+        expandedAlignment: Alignment.centerLeft,
+        collapsedBackgroundColor: selected ? AppColors.geryColor : Colors.white,
+        children: [
+          if (title == appLocaleInstance().practitioners)
+            Row(
+              children: <Widget>[
+                Image.asset(
+                  AppImages.icUser,
+                  height: 25,
+                  width: 25,
+                  fit: BoxFit.fill,
+                  color: Colors.grey,
+                ),
+                const SizedBox(width: 5),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Mark Black',
+                        style: AppTextStyles.blackBoldTextStyle14(),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(top: 2),
+                        child: Text(
+                          'General Practice',
+                          style: AppTextStyles.blackBoldTextStyle11(),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                PrimaryButton(
+                  hoverColor: Colors.black,
+                  hoverChildColor: Colors.white,
+                  style: ElevatedButton.styleFrom(
+                    textStyle: AppTextStyles.blackBoldTextStyle12(),
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 8, vertical: 17),
+                    primary: Colors.white,
+                    onPrimary: Colors.black,
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    minimumSize: const Size(0, 0),
+                  ),
+                  onTap: () {},
+                  child: const Text("Co-visit"),
+                ),
+              ],
+            ),
+        ],
+      ),
     );
   }
 }

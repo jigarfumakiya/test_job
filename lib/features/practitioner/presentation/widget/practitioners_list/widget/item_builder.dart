@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_task/core/common_widget/primary_button.dart';
+import 'package:test_core/core/servies/navigation_service.dart';
 import 'package:test_core/core/utils/app_colors.dart';
 import 'package:test_core/core/utils/app_textstyle.dart';
 
+import '../../../../../../core/routes/routes.dart';
 import '../../../../../../core/utils/app_images.dart';
+import '../../../../../../di/injection.dart';
 
 final list = [
   '9:30a',
@@ -72,7 +75,7 @@ class ItemBuilder extends StatelessWidget {
                         borderRadius: BorderRadius.circular(8)),
                     minimumSize: const Size(0, 0),
                   ),
-                  onTap: () {},
+                  onTap: onSelectTap,
                   child: const Text("Select"),
                 ),
               ],
@@ -112,5 +115,15 @@ class ItemBuilder extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  //class methods
+
+  void onSelectTap() {
+    print("called");
+
+    /// Todo Move this logic too navigation services
+    final context = sl<NavigationService>().navigatorKey.currentContext!;
+    Navigator.pushNamed(context, RoutesPath.practitionerDetailsWeb);
   }
 }

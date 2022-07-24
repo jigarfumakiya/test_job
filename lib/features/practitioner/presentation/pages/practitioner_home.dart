@@ -19,8 +19,6 @@ class PractitionerHome extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    print('Build called');
-
     return Scaffold(
       backgroundColor: Colors.white,
       body: Responsive(
@@ -33,12 +31,10 @@ class PractitionerHome extends StatelessWidget {
 
 class PractitionerWeb extends StatelessWidget {
   PractitionerWeb({Key? key}) : super(key: key);
-
   final bloc = sl<SideMenuBloc>();
 
   @override
   Widget build(BuildContext context) {
-    print('Build called');
     return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -51,12 +47,12 @@ class PractitionerWeb extends StatelessWidget {
               if (state is SideMenuOpen) {
                 return const CollapsibleMenu(
                   isExpanded: true,
-                  expandedWidget: CreateAppointment(),
+                  expandedWidget: CreateAppointment(onCreate: null),
                 );
               } else {
                 return const CollapsibleMenu(
                   isExpanded: false,
-                  expandedWidget: CreateAppointment(),
+                  expandedWidget: CreateAppointment(onCreate: null),
                 );
               }
             },
@@ -86,13 +82,15 @@ class PractitionerWeb extends StatelessWidget {
       bloc: bloc,
       builder: (context, state) {
         if (state is SideMenuOpen) {
-          return PractitionerToolbar(
-            onSideMenuTap: onSideMenuTap,
+          return Toolbar(
+            title: appLocaleInstance().practitioner,
+            onBackArrowTap: onSideMenuTap,
             isExpanded: true,
           );
         } else {
-          return PractitionerToolbar(
-            onSideMenuTap: onSideMenuTap,
+          return Toolbar(
+            title: appLocaleInstance().practitioner,
+            onBackArrowTap: onSideMenuTap,
             isExpanded: false,
           );
         }

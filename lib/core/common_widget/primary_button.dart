@@ -7,7 +7,7 @@ class PrimaryButton extends StatelessWidget {
   final Color hoverChildColor;
   final Color backgroundColor;
   final Color childColor;
-  final VoidCallback onTap;
+  final VoidCallback? onTap;
   final ButtonStyle? style;
 
   const PrimaryButton({
@@ -24,7 +24,7 @@ class PrimaryButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: onTap,
       style: (style ??
               ElevatedButton.styleFrom(
                 textStyle: AppTextStyles.blackBoldTextStyle14(),

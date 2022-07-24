@@ -4,15 +4,16 @@ import 'package:test_core/core/utils/responsive.dart';
 import 'package:test_core/core/widget/icon_button.dart';
 
 import '../../../../../../core/utils/app_images.dart';
-import '../../../../../../core/utils/app_local.dart';
 
-class PractitionerToolbar extends StatelessWidget {
-  final VoidCallback onSideMenuTap;
+class Toolbar extends StatelessWidget {
+  final VoidCallback? onBackArrowTap;
   final bool isExpanded;
+  final String title;
 
-  const PractitionerToolbar({
+  const Toolbar({
     Key? key,
-    required this.onSideMenuTap,
+    required this.title,
+    this.onBackArrowTap,
     this.isExpanded = false,
   }) : super(key: key);
 
@@ -33,11 +34,20 @@ class PractitionerToolbar extends StatelessWidget {
                   ? CrossFadeState.showSecond
                   : CrossFadeState.showFirst,
               firstChild: AppIconButton(
-                onTap: onSideMenuTap,
+                onTap: () {
+                  if (onBackArrowTap != null) {
+                    onBackArrowTap?.call();
+                  }
+                },
                 icon: Icons.arrow_forward_ios_sharp,
               ),
               secondChild: AppIconButton(
-                  onTap: onSideMenuTap, icon: Icons.arrow_back_ios_new),
+                  onTap: () {
+                    if (onBackArrowTap != null) {
+                      onBackArrowTap?.call();
+                    }
+                  },
+                  icon: Icons.arrow_back_ios_new),
             ),
             AppIconButton.formAsset(onTap: () {}, assetPath: AppImages.icMinus),
             AppIconButton(
@@ -46,7 +56,7 @@ class PractitionerToolbar extends StatelessWidget {
             ),
             const SizedBox(width: 25),
             Text(
-              appLocaleInstance().practitioner,
+              title,
               style: AppTextStyles.blackBoldTextStyle24(),
             )
           ],
