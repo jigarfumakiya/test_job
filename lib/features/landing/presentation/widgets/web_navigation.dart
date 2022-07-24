@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:test_core/core/utils/app_textstyle.dart';
 
 import '../../../../core/utils/app_images.dart';
-import '../../../../core/utils/app_textstyle.dart';
+import '../../../../core/utils/app_local.dart';
 
 /// NavigationRail for the web
 
@@ -61,11 +61,11 @@ class WebNavigation extends StatelessWidget {
                   children: <Widget>[
                     _buildBottomItem(
                         icon: AppImages.icNotification,
-                        title: AppLocalizations.of(context)!.notifications),
+                        title: appLocaleInstance().notifications),
                     const SizedBox(height: 20),
                     _buildBottomItem(
                         icon: AppImages.icHelp,
-                        title: AppLocalizations.of(context)!.help),
+                        title: appLocaleInstance().help),
                     const SizedBox(height: 20),
                     _buildBottomItem(icon: AppImages.icMyAccount, title: ''),
                   ],
@@ -78,20 +78,19 @@ class WebNavigation extends StatelessWidget {
           },
           destinations: [
             _buildNavigationDestination(
-                title: AppLocalizations.of(context)!.dashboard,
+                title: appLocaleInstance().dashboard,
                 icon: AppImages.icDashboard),
             _buildNavigationDestination(
-                title: AppLocalizations.of(context)!.calendar,
+                title: appLocaleInstance().calendar,
                 icon: AppImages.icCalendar),
             _buildNavigationDestination(
-                title: AppLocalizations.of(context)!.clinical,
+                title: appLocaleInstance().clinical,
                 icon: AppImages.icClinical),
             _buildNavigationDestination(
-                title: AppLocalizations.of(context)!.patients,
+                title: appLocaleInstance().patients,
                 icon: AppImages.icPatients),
             _buildNavigationDestination(
-                title: AppLocalizations.of(context)!.billing,
-                icon: AppImages.icBilling),
+                title: appLocaleInstance().billing, icon: AppImages.icBilling),
           ],
         ),
       ],

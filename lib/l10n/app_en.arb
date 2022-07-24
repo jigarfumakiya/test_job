@@ -7,5 +7,25 @@
   "notifications": "Notifications",
   "help": "Help",
   "practitioner": "Practitioner",
-  "searchText": "Search for practitioners or specialties"
+  "searchText": "Search for practitioners or specialties",
+  "soonestAvailability": "Soonest availability",
+  "time": "Time",
+  "location": "Location",
+  "home": "Home",
+  "virtual": "Virtual",
+  "type": "Type",
+  "followIp": "Follow up",
+  "walkIn": "Walk In",
+  "practice": "practice",
+  "primaryClinicDubai": "Primary Clinic Dubai",
+  "showAll": "Show all",
+  "ob_gyn": "OB-GYN",
+  "plus_three_more": "+ 3 more",
+  "specialty": "Specialty",
+  "all": "All",
+  "general_practice": "General Practice",
+  "ent": "ENT",
+  "physiotherapy": "Physiotherapy"
+
+
 }

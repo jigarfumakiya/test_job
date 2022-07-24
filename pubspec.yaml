@@ -39,6 +39,10 @@ dependencies:
   get_it: ^7.2.0
   dartz: ^0.10.1
   google_fonts: ^3.0.1
+  table_calendar: ^3.0.6
+  toggle_switch: ^2.0.1
+  flutter_switch: ^0.3.2
+  syncfusion_flutter_sliders: ^20.2.39
   ###########################  IMPORT INTERNAL ###########################
   test_core:
     git:

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_task/di/injection.dart';
 import 'package:flutter_task/features/practitioner/presentation/pages/practitioner_home.dart';
-import 'package:flutter_task/injection.dart';
 import 'package:test_core/core/utils/responsive.dart';
 
 import '../bloc/navigation_bloc.dart';

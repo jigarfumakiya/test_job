@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_task/injection.dart';
+import 'package:flutter_task/di/injection.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:test_core/core/servies/navigation_service.dart';
 
 import 'features/landing/presentation/pages/base_home.dart';
 
@@ -30,6 +31,7 @@ class MyApp extends StatelessWidget {
           GlobalWidgetsLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
         ],
+        navigatorKey: sl<NavigationService>().navigatorKey,
         supportedLocales: const [
           Locale('en', ''), // English, no country code
         ],
