@@ -36,7 +36,11 @@ class PractitionersWidget extends StatelessWidget {
                   crossAxisCount: Responsive.isTablet(context)
                       ? 1
                       : constraints.maxWidth > 930
-                          ? 3
+
+                          /// if screen is big then increase the item count
+                          ? constraints.maxWidth > 1245
+                              ? 4
+                              : 3
                           : 2,
                   // Responsive values
                   //min  930
