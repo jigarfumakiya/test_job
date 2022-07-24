@@ -97,16 +97,18 @@ class ItemBuilder extends StatelessWidget {
                 Wrap(
                   spacing: 5,
                   children: list
-                      .map<Widget>((e) => ChoiceChip(
-                          onSelected: (value) {},
-                          padding: const EdgeInsets.all(0),
-                          elevation: 1,
-                          backgroundColor: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(3)),
-                          label: Text(e,
-                              style: AppTextStyles.blackBoldTextStyle12()),
-                          selected: false))
+                      .map<Widget>((e) => PrimaryButton(
+                            onTap: () {},
+                            style: ElevatedButton.styleFrom(
+                                textStyle: AppTextStyles.blackBoldTextStyle12(),
+                                minimumSize: const Size(0, 0),
+                                padding: const EdgeInsets.symmetric(
+                                    vertical: 15, horizontal: 8)),
+                            hoverColor: Colors.black,
+                            childColor: Colors.black,
+                            hoverChildColor: Colors.white,
+                            child: Text(e),
+                          ))
                       .toList(),
                 )
               ],
@@ -120,8 +122,6 @@ class ItemBuilder extends StatelessWidget {
   //class methods
 
   void onSelectTap() {
-    print("called");
-
     /// Todo Move this logic too navigation services
     final context = sl<NavigationService>().navigatorKey.currentContext!;
     Navigator.pushNamed(context, RoutesPath.practitionerDetailsWeb);
